@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Assessment;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,12 +20,14 @@ class AssessmentController extends AbstractController
 
     /**
      * @Route("/api/assessment", name="assessment")
+     * @param int $assessmentCode
      * @return JsonResponse
      */
-    public function getUsers()
+    public function getAssessmentData(int $assessmentCode)
     {
-        $assessmentData = $this;
-
+        $assessmentRepository = $this->getDoctrine()->getRepository(Assessment::class);
+        $assessment = $assessmentRepository->findOneBy(['code' => $assessmentCode]);
+        $assessmentData = $assessment->getAssessmentQuestions();
         $response = new Response();
 
         $response->headers->set('Content-Type', 'application/json');
@@ -34,4 +37,6 @@ class AssessmentController extends AbstractController
 
         return $response;
     }
+
+
 }
