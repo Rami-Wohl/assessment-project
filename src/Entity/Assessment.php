@@ -30,8 +30,8 @@ class Assessment
     private $title;
 
     /**
-     * @ORM\OneToMany(targetEntity=AssessmentQuestion::class, mappedBy="assessmentId", orphanRemoval=true)
-     * @OrderBy({"questionIndex": "ASC"})
+     * @ORM\OneToMany(targetEntity=AssessmentQuestion::class, mappedBy="assessmentId", orphanRemoval=true, fetch="EAGER")
+     * @ORM\OrderBy({"questionIndex": "ASC"})
      */
     private $assessmentQuestions;
 

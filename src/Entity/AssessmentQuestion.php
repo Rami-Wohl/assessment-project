@@ -18,13 +18,13 @@ class AssessmentQuestion
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Question::class, inversedBy="assessmentQuestions")
+     * @ORM\ManyToOne(targetEntity=Question::class, inversedBy="assessmentQuestions", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $questionId;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Assessment::class, inversedBy="assessmentQuestions")
+     * @ORM\ManyToOne(targetEntity=Assessment::class, inversedBy="assessmentQuestions", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $assessmentId;
