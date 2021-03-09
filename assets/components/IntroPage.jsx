@@ -1,7 +1,7 @@
-import React, {Component} from "react";
+import React from "react";
 import LinkButton from "./LinkButton";
 
-export const IntroPage = ({...props}) => (
+export const IntroPage = () => (
     <React.Fragment>
         <div className={'intro-text'}>
             <p>Je staat op het punt om de vragenlijst te starten. Een persoonlijkheidsvragenlijst wordt ingezet om een
@@ -25,6 +25,5 @@ export const IntroPage = ({...props}) => (
             <LinkButton className={'link-button'} to={'/assessment'}>Start</LinkButton>
         </div>
     </React.Fragment>
-
 )
 

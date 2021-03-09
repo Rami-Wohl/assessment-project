@@ -17,7 +17,7 @@ class AssessmentController extends AbstractController
      */
     public function getAssessmentData(Request $request)
     {
-        // needs some more request validation
+        // TODO: needs some more request validation
 
         $requestContent = json_decode($request->getContent(), true);
         $assessmentCode = $requestContent['assessmentCode'];
