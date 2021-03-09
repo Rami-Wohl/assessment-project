@@ -7,10 +7,10 @@ export const AssessmentSlideshow = (props) => {
 
     const GetQuestionOrSummary = (count, total) => {
         return (count >= total ? <SummaryText /> : <Question question={props.question}
-                                                            answer={props.answer}
-                                                            count={props.count}
-                                                            updateAnswer={props.updateAnswer}
-                                                 />
+                                                             answer={props.answer}
+                                                             count={props.count}
+                                                             updateAnswer={props.updateAnswer}
+                                                   />
         )
     }
 
@@ -22,6 +22,7 @@ export const AssessmentSlideshow = (props) => {
             </div>
             <AssessmentNavbar count={props.count}
                               total={props.total}
+                              hasAnswer={!!props.answer}
                               navigateSlideshow={props.navigateSlideshow}
             />
         </React.Fragment>

@@ -17,7 +17,7 @@ html, body {
    font-size: x-large;
    margin-top: 5px;
 }
-
+//TODO: fix styling when screen height is low
 .assessment-container {
     border: solid;
     border-radius: 0.5%;
@@ -36,6 +36,7 @@ html, body {
     flex: 8.5;
     line-height: 20px;
     min-height: 90%;
+    height: 100%;
 
     li {
         margin: 5px 0;
@@ -48,13 +49,12 @@ html, body {
     flex: 1.5;
 }
 
-button {
+.nav-button {
     display:inline-block;
     padding:0.3em 1.2em;
     margin:0 0.3em 0.3em 0;
     border-radius:2em;
     box-sizing: border-box;
-    text-decoration:none;
     font-weight:300;
     color:#000000;
     background-color: #e3e3e3;
@@ -100,5 +100,51 @@ button {
     padding: 0 20px;
     text-align: center;
     font-size: larger;
+    height: 15%;
+}
+
+.question-body {
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.slider-component {
+    width: 100%;
+    height: max-content;
+    align-self: center;
+}
+
+.slider-values {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.button-group-options {
+    display: grid;
+    min-width: 45%;
+    padding-bottom: 5%;
+}
+
+.mc-button {
+    max-height: 40px;
+    color: #222;
+    background: #ffffff;
+    border: 1px solid #494949;
+    transition: all 0.4s ease 0s;
+
+    &:hover, {
+        color: #ffffff;
+        background: #00800061;
+        border-color: #00800061;
+        transition: all 0.4s ease 0s;
+    }
+}
+
+.mc-button.selected {
+        color: #ffffff;
+        background: #00800061;
+        border-color: #00800061;
 }
 

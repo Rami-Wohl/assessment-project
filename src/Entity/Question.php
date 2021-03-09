@@ -39,11 +39,6 @@ class Question
         $this->assessmentQuestions = new ArrayCollection();
     }
 
-//    public function __sleep() : array
-//    {
-//        return array('id', 'bodyText', 'questionType');
-//    }
-
     public function getId(): ?int
     {
         return $this->id;

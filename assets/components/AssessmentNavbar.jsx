@@ -8,17 +8,18 @@ export const AssessmentNavbar = (props) => {
     return (
         <div className={'assessment-nav-footer'}>
             <div className={'nav-back'}>
-                {count > 0 && <button onClick={() => props.navigateSlideshow(count - 1)}>Terug</button>}
+                {count > 0 && <button className={'nav-button'}
+                                      onClick={() => props.navigateSlideshow(count - 1)}>Terug</button>}
             </div>
-            <div className={'progress-counter'}>
-                {count < total && <ProgressCounter count={count}
-                                                   total={total}
-                                   />
-                }
-            </div>
+            {count < total && <ProgressCounter count={count}
+                                               total={total}
+                                               hasAnswer={props.hasAnswer}
+                              />
+            }
             <div className={'nav-forward'}>
                 {count >= total ? <LinkButton to={'/results'}>Verzend</LinkButton> :
-                    <button onClick={() => props.navigateSlideshow(count + 1)}>Verder</button>
+                    <button className={'nav-button'}
+                            onClick={() => props.navigateSlideshow(count + 1)}>Verder</button>
                 }
             </div>
         </div>

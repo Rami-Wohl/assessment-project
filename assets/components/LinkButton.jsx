@@ -14,6 +14,7 @@ const LinkButton = (props) => {
     return (
         <button
             {...rest}
+            className={'nav-button'}
             onClick={(event) => {
                 onClick && onClick(event)
                 history.push(to)
