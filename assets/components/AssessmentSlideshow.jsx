@@ -6,7 +6,7 @@ import {AssessmentNavbar} from "./AssessmentNavbar";
 export const AssessmentSlideshow = (props) => {
 
     const GetQuestionOrSummary = (count, total) => {
-        return (count > total ? <SummaryText /> : <Question question={props.question}
+        return (count >= total ? <SummaryText /> : <Question question={props.question}
                                                             answer={props.answer}
                                                             count={props.count}
                                                             updateAnswer={props.updateAnswer}

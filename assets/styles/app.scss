@@ -48,7 +48,7 @@ html, body {
     flex: 1.5;
 }
 
-.link-button {
+button {
     display:inline-block;
     padding:0.3em 1.2em;
     margin:0 0.3em 0.3em 0;
@@ -76,7 +76,29 @@ html, body {
 }
 
 .assessment-nav-footer {
+    display: inline-flex;
     padding: 0 20px;
     flex: 1.5;
+}
+
+.nav-back {
+    text-align: left;
+    flex: 1;
+}
+
+.nav-forward {
+    text-align: right;
+    flex: 1;
+}
+
+.progress-counter {
+    text-align: center;
+    flex: 1;
+}
+
+.question-header {
+    padding: 0 20px;
+    text-align: center;
+    font-size: larger;
 }
 

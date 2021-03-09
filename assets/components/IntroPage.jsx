@@ -22,7 +22,7 @@ export const IntroPage = () => (
                 ze na te lezen of eventueel aan te passen.</p>
         </div>
         <div className={'nav-footer'}>
-            <LinkButton className={'link-button'} to={'/assessment'}>Start</LinkButton>
+            <LinkButton to={'/assessment'}>Start</LinkButton>
         </div>
     </React.Fragment>
 )

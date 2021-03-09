@@ -57,7 +57,7 @@ class AssessmentController extends AbstractController
     public function index(): Response
     {
         $assessmentRepository = $this->getDoctrine()->getRepository(Assessment::class);
-        $assessment = $assessmentRepository->findOneBy(['code' => 'TEST1']);
+        $assessment = $assessmentRepository->findOneBy(['code' => 'TEST2']);
 
         return $this->render('assessment/index.html.twig', [
             'assessmentTitle' => $assessment->getTitle(),
