@@ -1,16 +1,18 @@
 import React from "react";
 import {SummaryText} from "./SummaryText";
 import {Question} from "./Question";
-import {AssessmentNavbar} from "./AssessmentNavbar";
+import AssessmentNavbar from "./AssessmentNavbar";
 
 export const AssessmentSlideshow = (props) => {
 
     const GetQuestionOrSummary = (count, total) => {
-        return (count >= total ? <SummaryText /> : <Question question={props.question}
-                                                             answer={props.answer}
-                                                             count={props.count}
-                                                             updateAnswer={props.updateAnswer}
-                                                   />
+        return (count >= total ?
+                <SummaryText checkCompletion={props.checkCompletion}/> :
+                <Question question={props.question}
+                          answer={props.answer}
+                          count={props.count}
+                          updateAnswer={props.updateAnswer}
+                />
         )
     }
 
@@ -24,6 +26,8 @@ export const AssessmentSlideshow = (props) => {
                               total={props.total}
                               hasAnswer={!!props.answer}
                               navigateSlideshow={props.navigateSlideshow}
+                              checkCompletion={props.checkCompletion}
+                              submitResults={props.submitResults}
             />
         </React.Fragment>
     )

@@ -8,13 +8,15 @@ export const Question = (props) => {
 
     switch (props.question.questionType) {
         case 1:
-            questionOptions = <MultipleChoiceOptions answer={props.answer}
+            questionOptions = <MultipleChoiceOptions key={props.count}
+                                                     answer={props.answer}
                                                      updateAnswer={props.updateAnswer}
                                                      count={props.count}
                               />;
             break;
         case 2:
-            questionOptions = <SliderBarOptions answer={props.answer}
+            questionOptions = <SliderBarOptions key={props.count}
+                                                answer={props.answer}
                                                 updateAnswer={props.updateAnswer}
                                                 count={props.count}
                               />;

@@ -1,10 +1,11 @@
 import React from "react";
 import ProgressCounter from "./ProgressCounter";
-import LinkButton from "./LinkButton";
+import {withRouter} from "react-router-dom";
 
-export const AssessmentNavbar = (props) => {
+const AssessmentNavbar = (props) => {
     const count = props.count;
     const total = props.total;
+    const isComplete = props.checkCompletion();
     return (
         <div className={'assessment-nav-footer'}>
             <div className={'nav-back'}>
@@ -14,10 +15,12 @@ export const AssessmentNavbar = (props) => {
             {count < total && <ProgressCounter count={count}
                                                total={total}
                                                hasAnswer={props.hasAnswer}
-                              />
+            />
             }
             <div className={'nav-forward'}>
-                {count >= total ? <LinkButton to={'/results'}>Verzend</LinkButton> :
+                {count >= total ? <button className={'nav-button'}
+                                          disabled={!isComplete}
+                                          onClick={() => props.submitResults()}>Verzend</button> :
                     <button className={'nav-button'}
                             onClick={() => props.navigateSlideshow(count + 1)}>Verder</button>
                 }
@@ -25,3 +28,5 @@ export const AssessmentNavbar = (props) => {
         </div>
     )
 }
+
+export default withRouter(AssessmentNavbar);

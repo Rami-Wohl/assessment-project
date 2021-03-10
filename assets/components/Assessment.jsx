@@ -1,6 +1,8 @@
 import React, {Component} from "react";
+import {withRouter} from "react-router-dom";
 import ClipLoader from 'react-spinners/ClipLoader'
 import {AssessmentSlideshow} from "./AssessmentSlideshow";
+
 
 class Assessment extends Component {
     constructor(props) {
@@ -15,6 +17,8 @@ class Assessment extends Component {
 
         this.updateAnswer = this.updateAnswer.bind(this);
         this.navigateSlideshow = this.navigateSlideshow.bind(this);
+        this.checkAssessmentCompletion = this.checkAssessmentCompletion.bind(this);
+        this.submitResults = this.submitResults.bind(this);
     }
 
     componentDidMount = () => {
@@ -46,6 +50,34 @@ class Assessment extends Component {
             });
     };
 
+    submitResults = () => {
+
+        this.setState({
+            loading: true,
+        })
+
+        fetch('/api/submit', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                assessmentAnswers: this.state.answers,
+            })
+        })
+            .then(response => response.json())
+            .then(result => {
+                this.props.updateResults(result);
+                this.props.history.push('/results');
+            })
+            .catch(e => {
+                // TODO: build errormessage
+                console.log(e);
+                this.setState({...this.state, loading: false});
+            });
+    };
+
     navigateSlideshow = (newCount) => {
         this.setState({
             count: newCount
@@ -58,6 +90,10 @@ class Assessment extends Component {
         this.setState({
             answers: updatedAnswers
         })
+    }
+
+    checkAssessmentCompletion = () => {
+        return !(this.state.questionList.length > this.state.answers.length || this.state.answers.includes(null));
     }
 
     render = () => {
@@ -77,6 +113,8 @@ class Assessment extends Component {
                                              answer={this.state.answers[count] ? this.state.answers[count] : null}
                                              updateAnswer={this.updateAnswer}
                                              navigateSlideshow={this.navigateSlideshow}
+                                             checkCompletion={this.checkAssessmentCompletion}
+                                             submitResults={this.submitResults}
                         />
                     )
                 }
@@ -85,4 +123,4 @@ class Assessment extends Component {
     }
 }
 
-export default Assessment;
+export default withRouter(Assessment);
