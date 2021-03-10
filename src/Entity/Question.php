@@ -30,7 +30,7 @@ class Question
     private $questionType;
 
     /**
-     * @ORM\OneToMany(targetEntity=AssessmentQuestion::class, mappedBy="questionId", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=AssessmentQuestion::class, mappedBy="question", orphanRemoval=true)
      */
     private $assessmentQuestions;
 
@@ -80,7 +80,7 @@ class Question
     {
         if (!$this->assessmentQuestions->contains($assessmentQuestion)) {
             $this->assessmentQuestions[] = $assessmentQuestion;
-            $assessmentQuestion->setQuestionId($this);
+            $assessmentQuestion->setQuestion($this);
         }
 
         return $this;
@@ -90,8 +90,8 @@ class Question
     {
         if ($this->assessmentQuestions->removeElement($assessmentQuestion)) {
             // set the owning side to null (unless already changed)
-            if ($assessmentQuestion->getQuestionId() === $this) {
-                $assessmentQuestion->setQuestionId(null);
+            if ($assessmentQuestion->getQuestion() === $this) {
+                $assessmentQuestion->setQuestion(null);
             }
         }
 

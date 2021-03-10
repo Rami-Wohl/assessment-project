@@ -30,7 +30,7 @@ class Assessment
     private $title;
 
     /**
-     * @ORM\OneToMany(targetEntity=AssessmentQuestion::class, mappedBy="assessmentId", orphanRemoval=true, fetch="EAGER")
+     * @ORM\OneToMany(targetEntity=AssessmentQuestion::class, mappedBy="assessment", orphanRemoval=true, fetch="EAGER")
      * @ORM\OrderBy({"questionIndex": "ASC"})
      */
     private $assessmentQuestions;
@@ -81,7 +81,7 @@ class Assessment
     {
         if (!$this->assessmentQuestions->contains($assessmentQuestion)) {
             $this->assessmentQuestions[] = $assessmentQuestion;
-            $assessmentQuestion->setAssessmentId($this);
+            $assessmentQuestion->setAssessment($this);
         }
 
         return $this;

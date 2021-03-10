@@ -21,13 +21,13 @@ class AssessmentQuestion
      * @ORM\ManyToOne(targetEntity=Question::class, inversedBy="assessmentQuestions", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $questionId;
+    private $question;
 
     /**
      * @ORM\ManyToOne(targetEntity=Assessment::class, inversedBy="assessmentQuestions", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $assessmentId;
+    private $assessment;
 
     /**
      * @ORM\Column(type="integer")
@@ -39,26 +39,26 @@ class AssessmentQuestion
         return $this->id;
     }
 
-    public function getQuestionId(): ?Question
+    public function getQuestion(): ?Question
     {
-        return $this->questionId;
+        return $this->question;
     }
 
-    public function setQuestionId(?Question $questionId): self
+    public function setQuestion(?Question $question): self
     {
-        $this->questionId = $questionId;
+        $this->question = $question;
 
         return $this;
     }
 
-    public function getAssessmentId(): ?Assessment
+    public function getAssessment(): ?Assessment
     {
-        return $this->assessmentId;
+        return $this->assessment;
     }
 
-    public function setAssessmentId(?Assessment $assessmentId): self
+    public function setAssessment(?Assessment $assessment): self
     {
-        $this->assessmentId = $assessmentId;
+        $this->assessment = $assessment;
 
         return $this;
     }

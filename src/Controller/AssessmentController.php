@@ -31,9 +31,9 @@ class AssessmentController extends AbstractController
 
         foreach ($orderedQuestions as $question) {
             $questionIndex = $question->getQuestionIndex();
-            $questionId = $question->getQuestionId()->getId();
-            $questionBody = $question->getQuestionId()->getBodyText();
-            $questionType = $question->getQuestionId()->getQuestionType();
+            $questionId = $question->getQuestion()->getId();
+            $questionBody = $question->getQuestion()->getBodyText();
+            $questionType = $question->getQuestion()->getQuestionType();
 
             $assessmentQuestions[] = ['questionId' => $questionId,
                 'questionIndex' => $questionIndex,
