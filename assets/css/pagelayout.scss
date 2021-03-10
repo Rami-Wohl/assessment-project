@@ -1,0 +1,46 @@
+.assessment-title {
+  font-size: x-large;
+  margin-top: 5px;
+}
+
+//TODO: fix styling when screen height is low
+.assessment-container {
+  border: solid;
+  border-radius: 0.5%;
+  min-height: 500px;
+  height: 80%;
+  width: 70%;
+  max-width: 800px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #cccdd8;
+}
+
+.content-body {
+  padding: 0 20px;
+  flex: 8.5;
+  line-height: 20px;
+  min-height: 90%;
+  height: 100%;
+
+  li {
+    margin: 5px 0;
+  }
+}
+
+@media screen and (max-width: 880px) {
+
+  .assessment-title {
+    font-size: large;
+  }
+
+  .content-body {
+    overflow-y: auto;
+    scrollbar-arrow-color: #DDDDDD;
+
+    > p, li {
+      font-size: 13px;
+    }
+  }
+}

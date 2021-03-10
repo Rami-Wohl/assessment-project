@@ -1,7 +1,7 @@
 import React from "react";
-import {SummaryText} from "./SummaryText";
+import {SummaryText} from "../text-content/SummaryText";
 import {Question} from "./Question";
-import AssessmentNavbar from "./AssessmentNavbar";
+import AssessmentNavbar from "./navbar/AssessmentNavbar";
 
 export const AssessmentSlideshow = (props) => {
 
@@ -18,8 +18,7 @@ export const AssessmentSlideshow = (props) => {
 
     return (
         <React.Fragment>
-            {/* TODO: class updaten als nodig, of hernoemen*/}
-            <div className={'intro-text'}>
+            <div className={'content-body'}>
                 {GetQuestionOrSummary(props.count, props.total)}
             </div>
             <AssessmentNavbar count={props.count}

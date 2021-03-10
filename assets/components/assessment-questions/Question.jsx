@@ -1,6 +1,6 @@
 import React from "react";
-import {MultipleChoiceOptions} from './MultipleChoiceOptions'
-import {SliderBarOptions} from './SliderBarOptions'
+import {MultipleChoiceOptions} from './question-options/MultipleChoiceOptions'
+import {SliderBarOptions} from './question-options/SliderBarOptions'
 
 export const Question = (props) => {
 

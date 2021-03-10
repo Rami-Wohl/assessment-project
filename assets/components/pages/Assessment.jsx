@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {withRouter} from "react-router-dom";
 import ClipLoader from 'react-spinners/ClipLoader'
-import {AssessmentSlideshow} from "./AssessmentSlideshow";
+import {AssessmentSlideshow} from "../assessment-questions/AssessmentSlideshow";
 
 
 class Assessment extends Component {

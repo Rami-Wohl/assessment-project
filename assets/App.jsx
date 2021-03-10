@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom';
-import './styles/app.scss';
-import {BasePageLayout} from './components/BasePageLayout'
-import Assessment from './components/Assessment'
-import {IntroPage} from "./components/IntroPage";
-import {ResultsPage} from "./components/ResultsPage";
+import './css/app.scss';
+import {BasePageLayout} from './components/layout/BasePageLayout'
+import Assessment from './components/pages/Assessment'
+import {IntroPage} from "./components/pages/IntroPage";
+import {ResultsPage} from "./components/pages/ResultsPage";
 
 // general TODO: add Proptypes to components
 

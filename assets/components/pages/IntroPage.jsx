@@ -1,9 +1,9 @@
 import React from "react";
-import LinkButton from "./LinkButton";
+import LinkButton from "../buttons/LinkButton";
 
 export const IntroPage = () => (
     <React.Fragment>
-        <div className={'intro-text'}>
+        <div className={'content-body'}>
             <p>Je staat op het punt om de vragenlijst te starten. Een persoonlijkheidsvragenlijst wordt ingezet om een
                 indruk te krijgen van de structuur van jouw persoonlijkheid. Het is geen test in de zin dat er goede of
                 foute antwoordmogelijkheden zijn.</p>
